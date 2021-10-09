@@ -1,4 +1,4 @@
-[![npm version](https://badge.fury.io/js/@react-native-twitter-signin/twitter-signin.svg)](https://badge.fury.io/js/@react-native-twitter-signin/twitter-signin)
+[![npm version](https://badge.fury.io/js/@react-native-twitter-signin%2Ftwitter-signin.svg)](https://badge.fury.io/js/@react-native-twitter-signin%2Ftwitter-signin.svg)
 
 **Note: This package is a fork of [GoldenOwlAsia/react-native-twitter-signin](https://github.com/GoldenOwlAsia/react-native-twitter-signin) with added support for TwitterKit 5**
 
