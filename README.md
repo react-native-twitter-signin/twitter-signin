@@ -133,7 +133,7 @@ On Android, it will use `Gradle` so all you need to do is to point to the correc
 
 Keeps in mind that all the configure is for your build tools to recognise the files. So open your Xcode and Android Studio to try making builds and make sure they pass.
 
-</detail>
+</details>
 
 ## Usage
 
