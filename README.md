@@ -1,6 +1,8 @@
-[![npm version](https://badge.fury.io/js/react-native-twitter-signin.svg)](https://badge.fury.io/js/react-native-twitter-signin)
+[![npm version](https://badge.fury.io/js/@react-native-twitter-signin/twitter-signin.svg)](https://badge.fury.io/js/@react-native-twitter-signin/twitter-signin)
 
-Note: this guide is for TwitterKit 3.3 and ReactNative 0.56+.
+**Note: This package is a fork of [GoldenOwlAsia/react-native-twitter-signin](https://github.com/GoldenOwlAsia/react-native-twitter-signin) with added support for TwitterKit 5**
+
+Note: this guide is for TwitterKit 5 and ReactNative 0.60+.
 
 # React Native : Twitter Signin
 This package provides necessary code to get your social sign in using Twitter works with least pain possible.
@@ -21,7 +23,7 @@ Go to [Twitter Apps](https://apps.twitter.com/) to create your app so that you c
  - By default, Twitter won't allow you to grab user's email, so you have to apply for a permission for your app to retrieve user's email
 
 Here is how callbacks would look like:
-![callbacks](https://github.com/twitter-signin/twitter-signin/blob/master/Example/img/callbacks.png?raw=true)
+![callbacks](https://github.com/react-native-twitter-signin/twitter-signin/blob/master/Example/img/callbacks.png?raw=true)
 
 From Twitter Kit 3.3, Fabric is no longer required.
 
@@ -32,7 +34,6 @@ Firstly, install the npm package:
     npm install @react-native-twitter-signin/twitter-signin --save
 
 ### iOS
-
 
  - run `cd ios && pod install`
  - Configure Info.Plist like below, replace `<consumerKey>` with your own key:
@@ -61,6 +62,9 @@ Firstly, install the npm package:
 }
 ````
 
+<details>
+<summary>Linking Package Manually (not recommended)</summary>
+
  - Add `TwitterKit`:
 
  #### With CocoaPods
@@ -81,8 +85,15 @@ Firstly, install the npm package:
  - Add TwitterKit, TwitterCore and 2 other bundle files into your root folder in Xcode
  - In `Build Phases → Link Binary with libraries` add `Twitter.framework` and `LibRBTwitterSignin.a`
 
+</details>
 
 ### Android
+
+For React Native 0.60+, no additional setup is required for android.
+
+<details>
+<summary>Linking Package Manually (not recommended)</summary>
+
 
 Run `react-native link react-native-twitter-signin`, or:
 
@@ -121,6 +132,8 @@ On Android, it will use `Gradle` so all you need to do is to point to the correc
 ```
 
 Keeps in mind that all the configure is for your build tools to recognise the files. So open your Xcode and Android Studio to try making builds and make sure they pass.
+
+</detail>
 
 ## Usage
 
