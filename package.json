@@ -12,6 +12,10 @@
     "social signin",
     "authentication"
   ],
+  "main": "lib/commonjs/index.js",
+  "module": "lib/module/index.js",
+  "react-native": "src/index.ts",
+  "types": "lib/typescript/index.d.ts",
   "homepage": "https://github.com/react-native-twitter-signin/twitter-signin.git",
   "repository": {
     "type": "git",
@@ -19,12 +23,30 @@
   },
   "license": "MIT",
   "dependencies": {},
+  "devDependencies": {
+    "@types/react-native": "^0.65.5",
+    "react-native": "^0.66.0",
+    "react-native-builder-bob": "^0.18.2",
+    "typescript": "^4.4.3"
+  },
+  "scripts": {
+    "prepare": "bob build"
+  },
   "peerDependencies": {},
   "engines": {
     "node": ">=4.0.0"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      "typescript"
+    ]
   },
   "deprecated": false
 }

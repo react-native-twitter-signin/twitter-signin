@@ -1,65 +1,65 @@
-import React, { Component } from "react"
-import {
-  AppRegistry,
-  Button,
-  StyleSheet,
-  Text,
-  View,
-  Alert,
-  NativeModules,
-  TouchableOpacity } from "react-native"
-
-const { RNTwitterSignIn } = NativeModules
+import React, {Component} from 'react';
+import {Button, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import RNTwitterSignIn from '@react-native-twitter-signin/twitter-signin';
 
 const Constants = {
   //Dev Parse keys
-  TWITTER_COMSUMER_KEY: "qWPj1TXbreMX1SsDvdiQTaF7Y",
-  TWITTER_CONSUMER_SECRET: "4t0cRfGWXZvySIa5sS0M38AnT8a8B8hwcX2lZiaStSWStD4B4Z"
-}
+  TWITTER_COMSUMER_KEY: 'qWPj1TXbreMX1SsDvdiQTaF7Y',
+  TWITTER_CONSUMER_SECRET: '4t0cRfGWXZvySIa5sS0M38AnT8a8B8hwcX2lZiaStSWStD4B4Z',
+};
 
 export default class TwitterButton extends Component {
   state = {
-    isLoggedIn: false
-  }
+    isLoggedIn: false,
+  };
 
   _twitterSignIn = () => {
-    RNTwitterSignIn.init(Constants.TWITTER_COMSUMER_KEY, Constants.TWITTER_CONSUMER_SECRET)
+    RNTwitterSignIn.init(
+      Constants.TWITTER_COMSUMER_KEY,
+      Constants.TWITTER_CONSUMER_SECRET,
+    );
+
     RNTwitterSignIn.logIn()
       .then(loginData => {
-        console.log(loginData)
-        const { authToken, authTokenSecret } = loginData
+        console.log(loginData);
+        const {authToken, authTokenSecret} = loginData;
         if (authToken && authTokenSecret) {
           this.setState({
-            isLoggedIn: true
-          })
+            isLoggedIn: true,
+          });
         }
       })
       .catch(error => {
-        console.log(error)
-      }
-    )
-  }
+        console.log(error);
+      });
+  };
 
   handleLogout = () => {
-    console.log("logout")
-    RNTwitterSignIn.logOut()
+    console.log('logout');
+    RNTwitterSignIn.logOut();
     this.setState({
-      isLoggedIn: false
-    })
-  }
+      isLoggedIn: false,
+    });
+  };
 
   render() {
-    const { isLoggedIn } = this.state
+    const {isLoggedIn} = this.state;
     return (
       <View style={this.props.style}>
-        {isLoggedIn
-          ? <TouchableOpacity onPress={this.handleLogout}>
-              <Text>Log out</Text>
-            </TouchableOpacity>
-          : <Button name="logo-twitter" style={styles.button} onPress={this._twitterSignIn} title="Login with Twitter">
-            </Button>}
+        {isLoggedIn ? (
+          <TouchableOpacity onPress={this.handleLogout}>
+            <Text>Log out</Text>
+          </TouchableOpacity>
+        ) : (
+          <Button
+            name="logo-twitter"
+            style={styles.button}
+            onPress={this._twitterSignIn}
+            title="Login with Twitter"
+          />
+        )}
       </View>
-    )
+    );
   }
 }
 
@@ -68,6 +68,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#1b95e0',
     color: 'white',
     width: 200,
-    height: 50
-  }
-})
+    height: 50,
+  },
+});

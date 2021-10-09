@@ -5,7 +5,10 @@
  * @format
  */
 
+const path = require('path');
+
 module.exports = {
+  watchFolders: [path.resolve(__dirname, '..', 'src')],
   transformer: {
     getTransformOptions: async () => ({
       transform: {
@@ -13,5 +16,10 @@ module.exports = {
         inlineRequires: true,
       },
     }),
+  },
+  resolver: {
+    extraNodeModules: {
+      'react-native': require.resolve('react-native'),
+    },
   },
 };
